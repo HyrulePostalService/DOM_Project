@@ -1,0 +1,27 @@
+body{
+    background-color: aqua;
+    border:solid black 4px;
+  
+}
+
+#container {
+    display:flex;
+    border:solid black 4px;
+   
+    height:100px;
+    align-items: center;
+   
+    justify-content: space-around;
+    
+    
+
+}
+
+.grid_squares{
+    display:flex;
+    
+    height:50px;
+    width:50px;
+
+
+}
