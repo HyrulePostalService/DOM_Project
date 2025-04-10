@@ -4,19 +4,19 @@ function createDivs(numofContainers, numofDivs){
     
 document.body.appendChild(containerDiv);
     for (let i = 0; i < numofContainers; i++){
-        const numofContainers = document.createElement("div");
-        numofContainers.id = "container";
-        document.body.appendChild(numofContainers);
+        let numofBoxes = document.createElement("div");
+        numofBoxes.id = "container";
+        containerDiv.appendChild(numofBoxes);
 
         for( let i = 0; i < numofDivs; i++){
-            const numofDivs = document.createElement("div");
-            numofDivs.className = "grid_squares";
-            numofContainers.appendChild(numofDivs);}
+            let numofItems = document.createElement("div");
+            numofItems.className = "grid_squares";
+            numofBoxes.appendChild(numofItems);}
         }
 
     
 }
-        createDivs(16, 16);
+        
     
     function randomColor(){
         const letters = '0123456789ABCDEF';
@@ -29,10 +29,40 @@ document.body.appendChild(containerDiv);
         return color;
     }
 
-    const hoverMe = document.querySelectorAll('.grid_squares');
 
-hoverMe.forEach(function(el){
-    el.addEventListener("mouseover", function(){
-        el.style.backgroundColor = randomColor();
-    })
+
+
+const promptButton = document.getElementById('userPop');
+
+promptButton.addEventListener("click", function(){
+    let numofContainers = prompt('Enter a number for rows');
+    let numberofDivs = prompt('Enter a second number for columns in each row');
+    
+    if(numofContainers === null || isNaN(numofContainers) || numberofDivs === null || isNaN(numberofDivs)){
+        alert("You must enter a number");
+
+    }
+
+    else if (numofContainers > 100 || numberofDivs > 100){
+        alert("Please enter numbers no greater than 100");
+    }
+
+    else {
+
+        numofContainers = Number(numofContainers);
+        numberofDivs = Number(numberofDivs);
+        
+        createDivs(numofContainers, numberofDivs);
+        
+    const hoverMe = document.querySelectorAll('.grid_squares');
+        hoverMe.forEach(function(el){
+            el.addEventListener("mouseover", function(){
+                el.style.backgroundColor = randomColor();
+            })
+        })
+        
+    }
+
+    
 })
+
