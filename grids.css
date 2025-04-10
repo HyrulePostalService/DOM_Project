@@ -4,35 +4,35 @@ body{
   
 }
 
-#container {
+.container {
     display:flex;
     border:solid black 4px;
     align-items: center;
     height:100px;
-    
-   
     justify-content: space-around;
-    
-    
-
 }
 
 .grid_squares{
     display:flex;
-    
     height:100px;
     width:50px;
-
 
 }
 
 #buttonContainer{
     display:flex;
-    justify-content: center;
+    justify-content:center;
+    gap:10px;
+    
+    
 }
 
 #userPop{
     height:70px;
     width:150px;
  
+}
+
+#reset {
+    width:100px;
 }

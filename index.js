@@ -1,11 +1,15 @@
 
 function createDivs(numofContainers, numofDivs){
     const containerDiv = document.createElement("div");
+    const bodyContainer = document.createElement("div");
+bodyContainer.id = "bodyContainer";
+document.body.appendChild(bodyContainer);
+bodyContainer.appendChild(containerDiv);
     
-document.body.appendChild(containerDiv);
+
     for (let i = 0; i < numofContainers; i++){
         let numofBoxes = document.createElement("div");
-        numofBoxes.id = "container";
+        numofBoxes.className = "container";
         containerDiv.appendChild(numofBoxes);
 
         for( let i = 0; i < numofDivs; i++){
@@ -66,3 +70,19 @@ promptButton.addEventListener("click", function(){
     
 })
 
+
+
+
+const resetButton = document.createElement("button");
+resetButton.id = "reset";
+resetButton.textContent = "Reset"
+const buttonContainer = document.getElementById("buttonContainer");
+buttonContainer.appendChild(resetButton);
+
+resetButton.addEventListener("click", function(){
+    const containerDiv = document.querySelector('#bodyContainer');
+
+    if (containerDiv){
+        containerDiv.remove();
+    }
+})
